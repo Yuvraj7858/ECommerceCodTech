@@ -1,0 +1,21 @@
+﻿@model List<Dukaan.Models.Product>
+
+
+<h2>Products</h2>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <img src="@product.ImageUrl" alt="@product.Name" class="card-img-top" style="height:200px; object-fit:cover;">
+                <div class="card-body">
+                    <h5>@product.Name</h5>
+                    <p>@product.Description</p>
+                    <p><strong>Price:</strong> @product.Price.ToString("C")</p>
+                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@product.Id" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
